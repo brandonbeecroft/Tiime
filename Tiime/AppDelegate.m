@@ -17,6 +17,18 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+    [Parse setApplicationId:@"vuXhVW5EHcvU3XAhpci4PdgFMS9HqVqup9kFA76Z"
+                  clientKey:@"WVGK9s7SdDTYSOivv51n157P5g9OVaDrPzhKFR7k"];
+
+    if ([PFUser currentUser].objectId == nil) {
+        [PFUser enableAutomaticUser];
+        [[PFUser currentUser] saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (succeeded) {
+                NSLog(@"User has logged in");
+            }
+        }];
+    }
     return YES;
 }
 

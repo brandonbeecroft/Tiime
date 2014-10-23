@@ -7,13 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		808F20EF62B3EF842560BEF4 /* libPods-Tiime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB3577A916B79D17FFC67BF /* libPods-Tiime.a */; };
 		E8875F6819F8A0B400E6315D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8875F6719F8A0B400E6315D /* main.m */; };
 		E8875F6B19F8A0B400E6315D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8875F6A19F8A0B400E6315D /* AppDelegate.m */; };
-		E8875F6E19F8A0B400E6315D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8875F6D19F8A0B400E6315D /* ViewController.m */; };
 		E8875F7119F8A0B400E6315D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8875F6F19F8A0B400E6315D /* Main.storyboard */; };
 		E8875F7319F8A0B400E6315D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8875F7219F8A0B400E6315D /* Images.xcassets */; };
 		E8875F7619F8A0B400E6315D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8875F7419F8A0B400E6315D /* LaunchScreen.xib */; };
 		E8875F8219F8A0B500E6315D /* TiimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8875F8119F8A0B500E6315D /* TiimeTests.m */; };
+		E8875F9019F8A20100E6315D /* TiimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8875F8F19F8A20100E6315D /* TiimeTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,19 +28,22 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3D824B0D6F7757AF46661BF5 /* Pods-Tiime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tiime/Pods-Tiime.debug.xcconfig"; sourceTree = "<group>"; };
+		D0EF1F9C3F97459E19553ECB /* Pods-Tiime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiime.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tiime/Pods-Tiime.release.xcconfig"; sourceTree = "<group>"; };
 		E8875F6219F8A0B400E6315D /* Tiime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tiime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8875F6619F8A0B400E6315D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8875F6719F8A0B400E6315D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E8875F6919F8A0B400E6315D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		E8875F6A19F8A0B400E6315D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		E8875F6C19F8A0B400E6315D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		E8875F6D19F8A0B400E6315D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		E8875F7019F8A0B400E6315D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		E8875F7219F8A0B400E6315D /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		E8875F7519F8A0B400E6315D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		E8875F7B19F8A0B500E6315D /* TiimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TiimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8875F8019F8A0B500E6315D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8875F8119F8A0B500E6315D /* TiimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TiimeTests.m; sourceTree = "<group>"; };
+		E8875F8E19F8A20100E6315D /* TiimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiimeTableViewController.h; sourceTree = "<group>"; };
+		E8875F8F19F8A20100E6315D /* TiimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiimeTableViewController.m; sourceTree = "<group>"; };
+		EAB3577A916B79D17FFC67BF /* libPods-Tiime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tiime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				808F20EF62B3EF842560BEF4 /* libPods-Tiime.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +65,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E10E90125515ED90F1FD5BD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D824B0D6F7757AF46661BF5 /* Pods-Tiime.debug.xcconfig */,
+				D0EF1F9C3F97459E19553ECB /* Pods-Tiime.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		AC12F4359549253A4FC7F01B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				EAB3577A916B79D17FFC67BF /* libPods-Tiime.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		E8875F5919F8A0B400E6315D = {
 			isa = PBXGroup;
 			children = (
 				E8875F6419F8A0B400E6315D /* Tiime */,
 				E8875F7E19F8A0B500E6315D /* TiimeTests */,
 				E8875F6319F8A0B400E6315D /* Products */,
+				2E10E90125515ED90F1FD5BD /* Pods */,
+				AC12F4359549253A4FC7F01B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,11 +105,11 @@
 		E8875F6419F8A0B400E6315D /* Tiime */ = {
 			isa = PBXGroup;
 			children = (
+				E8875F6F19F8A0B400E6315D /* Main.storyboard */,
 				E8875F6919F8A0B400E6315D /* AppDelegate.h */,
 				E8875F6A19F8A0B400E6315D /* AppDelegate.m */,
-				E8875F6C19F8A0B400E6315D /* ViewController.h */,
-				E8875F6D19F8A0B400E6315D /* ViewController.m */,
-				E8875F6F19F8A0B400E6315D /* Main.storyboard */,
+				E8875F8E19F8A20100E6315D /* TiimeTableViewController.h */,
+				E8875F8F19F8A20100E6315D /* TiimeTableViewController.m */,
 				E8875F7219F8A0B400E6315D /* Images.xcassets */,
 				E8875F7419F8A0B400E6315D /* LaunchScreen.xib */,
 				E8875F6519F8A0B400E6315D /* Supporting Files */,
@@ -126,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E8875F8519F8A0B500E6315D /* Build configuration list for PBXNativeTarget "Tiime" */;
 			buildPhases = (
+				F9A6D7825E0EF59F45F0906F /* Check Pods Manifest.lock */,
 				E8875F5E19F8A0B400E6315D /* Sources */,
 				E8875F5F19F8A0B400E6315D /* Frameworks */,
 				E8875F6019F8A0B400E6315D /* Resources */,
+				3F57EAE8C2EC6F6360A28E5F /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -214,12 +240,45 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3F57EAE8C2EC6F6360A28E5F /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tiime/Pods-Tiime-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F9A6D7825E0EF59F45F0906F /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		E8875F5E19F8A0B400E6315D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8875F6E19F8A0B400E6315D /* ViewController.m in Sources */,
+				E8875F9019F8A20100E6315D /* TiimeTableViewController.m in Sources */,
 				E8875F6B19F8A0B400E6315D /* AppDelegate.m in Sources */,
 				E8875F6819F8A0B400E6315D /* main.m in Sources */,
 			);
@@ -341,6 +400,7 @@
 		};
 		E8875F8619F8A0B500E6315D /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D824B0D6F7757AF46661BF5 /* Pods-Tiime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Tiime/Info.plist;
@@ -351,6 +411,7 @@
 		};
 		E8875F8719F8A0B500E6315D /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0EF1F9C3F97459E19553ECB /* Pods-Tiime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = Tiime/Info.plist;
@@ -412,6 +473,7 @@
 				E8875F8719F8A0B500E6315D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		E8875F8819F8A0B500E6315D /* Build configuration list for PBXNativeTarget "TiimeTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +482,7 @@
 				E8875F8A19F8A0B500E6315D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
