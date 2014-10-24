@@ -1,5 +1,5 @@
 //
-//  TiimeTableViewController.h
+//  TiimeViewController.h
 //  Tiime
 //
 //  Created by Brandon Beecroft on 10/22/14.
@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface TiimeTableViewController : UITableViewController
+@interface TiimeViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UILabel *mainTitleNavigationBar;
 @property (weak, nonatomic) IBOutlet UILabel *subTitleNavigationBar;
-//@property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) BOOL timeHasStarted;
+@property (nonatomic, strong) NSArray *userProjects;
 
 @end

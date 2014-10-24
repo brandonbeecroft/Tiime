@@ -18,8 +18,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
 
-    [Parse setApplicationId:@"vuXhVW5EHcvU3XAhpci4PdgFMS9HqVqup9kFA76Z"
-                  clientKey:@"WVGK9s7SdDTYSOivv51n157P5g9OVaDrPzhKFR7k"];
+    [Parse setApplicationId:@"qf6nr8X235tXP1xo04U8FVo6TRypeygVqm5UGOY1"
+                  clientKey:@"hoszngZ3tUIfRqs2EWa9cLd6RpH3SihJa0wf76uB"];
 
     if ([PFUser currentUser].objectId == nil) {
         [PFUser enableAutomaticUser];

@@ -8,13 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		808F20EF62B3EF842560BEF4 /* libPods-Tiime.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EAB3577A916B79D17FFC67BF /* libPods-Tiime.a */; };
+		E808CFF919F8A8A400F3BD71 /* TiimeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E808CFF819F8A8A400F3BD71 /* TiimeViewController.m */; };
+		E81F641019F99AAA00A39041 /* ProjectController.m in Sources */ = {isa = PBXBuildFile; fileRef = E81F640F19F99AAA00A39041 /* ProjectController.m */; };
+		E81F641319F99DE200A39041 /* AddNewProjectViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E81F641219F99DE200A39041 /* AddNewProjectViewController.m */; };
+		E81F641519F9A9A700A39041 /* Icon-60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E81F641419F9A9A700A39041 /* Icon-60@2x.png */; };
 		E8875F6819F8A0B400E6315D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E8875F6719F8A0B400E6315D /* main.m */; };
 		E8875F6B19F8A0B400E6315D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E8875F6A19F8A0B400E6315D /* AppDelegate.m */; };
 		E8875F7119F8A0B400E6315D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8875F6F19F8A0B400E6315D /* Main.storyboard */; };
 		E8875F7319F8A0B400E6315D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8875F7219F8A0B400E6315D /* Images.xcassets */; };
 		E8875F7619F8A0B400E6315D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8875F7419F8A0B400E6315D /* LaunchScreen.xib */; };
 		E8875F8219F8A0B500E6315D /* TiimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8875F8119F8A0B500E6315D /* TiimeTests.m */; };
-		E8875F9019F8A20100E6315D /* TiimeTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E8875F8F19F8A20100E6315D /* TiimeTableViewController.m */; };
+		E8AA4E5E19F9C82C005A8AA3 /* CustomCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AA4E5D19F9C82C005A8AA3 /* CustomCellTableViewCell.m */; };
+		E8AA4E6119FA0D31005A8AA3 /* StyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AA4E6019FA0D31005A8AA3 /* StyleKit.m */; };
+		E8AA4E6419FA0D56005A8AA3 /* timeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AA4E6319FA0D56005A8AA3 /* timeButton.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -30,6 +36,13 @@
 /* Begin PBXFileReference section */
 		3D824B0D6F7757AF46661BF5 /* Pods-Tiime.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiime.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tiime/Pods-Tiime.debug.xcconfig"; sourceTree = "<group>"; };
 		D0EF1F9C3F97459E19553ECB /* Pods-Tiime.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tiime.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tiime/Pods-Tiime.release.xcconfig"; sourceTree = "<group>"; };
+		E808CFF719F8A8A400F3BD71 /* TiimeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiimeViewController.h; sourceTree = "<group>"; };
+		E808CFF819F8A8A400F3BD71 /* TiimeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiimeViewController.m; sourceTree = "<group>"; };
+		E81F640E19F99AAA00A39041 /* ProjectController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProjectController.h; sourceTree = "<group>"; };
+		E81F640F19F99AAA00A39041 /* ProjectController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProjectController.m; sourceTree = "<group>"; };
+		E81F641119F99DE200A39041 /* AddNewProjectViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddNewProjectViewController.h; sourceTree = "<group>"; };
+		E81F641219F99DE200A39041 /* AddNewProjectViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddNewProjectViewController.m; sourceTree = "<group>"; };
+		E81F641419F9A9A700A39041 /* Icon-60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-60@2x.png"; sourceTree = "<group>"; };
 		E8875F6219F8A0B400E6315D /* Tiime.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tiime.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8875F6619F8A0B400E6315D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8875F6719F8A0B400E6315D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -41,8 +54,12 @@
 		E8875F7B19F8A0B500E6315D /* TiimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TiimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8875F8019F8A0B500E6315D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8875F8119F8A0B500E6315D /* TiimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TiimeTests.m; sourceTree = "<group>"; };
-		E8875F8E19F8A20100E6315D /* TiimeTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TiimeTableViewController.h; sourceTree = "<group>"; };
-		E8875F8F19F8A20100E6315D /* TiimeTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TiimeTableViewController.m; sourceTree = "<group>"; };
+		E8AA4E5C19F9C82C005A8AA3 /* CustomCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellTableViewCell.h; sourceTree = "<group>"; };
+		E8AA4E5D19F9C82C005A8AA3 /* CustomCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellTableViewCell.m; sourceTree = "<group>"; };
+		E8AA4E5F19FA0D31005A8AA3 /* StyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleKit.h; sourceTree = "<group>"; };
+		E8AA4E6019FA0D31005A8AA3 /* StyleKit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StyleKit.m; sourceTree = "<group>"; };
+		E8AA4E6219FA0D56005A8AA3 /* timeButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = timeButton.h; sourceTree = "<group>"; };
+		E8AA4E6319FA0D56005A8AA3 /* timeButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = timeButton.m; sourceTree = "<group>"; };
 		EAB3577A916B79D17FFC67BF /* libPods-Tiime.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Tiime.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -82,6 +99,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		E81F641619F9C6B200A39041 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				E81F641419F9A9A700A39041 /* Icon-60@2x.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		E8875F5919F8A0B400E6315D = {
 			isa = PBXGroup;
 			children = (
@@ -106,10 +131,20 @@
 			isa = PBXGroup;
 			children = (
 				E8875F6F19F8A0B400E6315D /* Main.storyboard */,
+				E8AA4E6219FA0D56005A8AA3 /* timeButton.h */,
+				E8AA4E6319FA0D56005A8AA3 /* timeButton.m */,
+				E8AA4E5F19FA0D31005A8AA3 /* StyleKit.h */,
+				E8AA4E6019FA0D31005A8AA3 /* StyleKit.m */,
 				E8875F6919F8A0B400E6315D /* AppDelegate.h */,
 				E8875F6A19F8A0B400E6315D /* AppDelegate.m */,
-				E8875F8E19F8A20100E6315D /* TiimeTableViewController.h */,
-				E8875F8F19F8A20100E6315D /* TiimeTableViewController.m */,
+				E808CFF719F8A8A400F3BD71 /* TiimeViewController.h */,
+				E808CFF819F8A8A400F3BD71 /* TiimeViewController.m */,
+				E8AA4E5C19F9C82C005A8AA3 /* CustomCellTableViewCell.h */,
+				E8AA4E5D19F9C82C005A8AA3 /* CustomCellTableViewCell.m */,
+				E81F641119F99DE200A39041 /* AddNewProjectViewController.h */,
+				E81F641219F99DE200A39041 /* AddNewProjectViewController.m */,
+				E81F640E19F99AAA00A39041 /* ProjectController.h */,
+				E81F640F19F99AAA00A39041 /* ProjectController.m */,
 				E8875F7219F8A0B400E6315D /* Images.xcassets */,
 				E8875F7419F8A0B400E6315D /* LaunchScreen.xib */,
 				E8875F6519F8A0B400E6315D /* Supporting Files */,
@@ -120,6 +155,7 @@
 		E8875F6519F8A0B400E6315D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E81F641619F9C6B200A39041 /* images */,
 				E8875F6619F8A0B400E6315D /* Info.plist */,
 				E8875F6719F8A0B400E6315D /* main.m */,
 			);
@@ -228,6 +264,7 @@
 				E8875F7119F8A0B400E6315D /* Main.storyboard in Resources */,
 				E8875F7619F8A0B400E6315D /* LaunchScreen.xib in Resources */,
 				E8875F7319F8A0B400E6315D /* Images.xcassets in Resources */,
+				E81F641519F9A9A700A39041 /* Icon-60@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -278,9 +315,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8875F9019F8A20100E6315D /* TiimeTableViewController.m in Sources */,
+				E81F641019F99AAA00A39041 /* ProjectController.m in Sources */,
 				E8875F6B19F8A0B400E6315D /* AppDelegate.m in Sources */,
+				E8AA4E6419FA0D56005A8AA3 /* timeButton.m in Sources */,
+				E8AA4E6119FA0D31005A8AA3 /* StyleKit.m in Sources */,
 				E8875F6819F8A0B400E6315D /* main.m in Sources */,
+				E808CFF919F8A8A400F3BD71 /* TiimeViewController.m in Sources */,
+				E81F641319F99DE200A39041 /* AddNewProjectViewController.m in Sources */,
+				E8AA4E5E19F9C82C005A8AA3 /* CustomCellTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.1.1 (8761) - http://www.bohemiancoding.com/sketch -->
+    <title>icon clock</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Icons" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="circlecons_vol1" sketch:type="MSArtboardGroup" transform="translate(-136.000000, -244.000000)" fill="#2B2933">
+            <g id="vol1" sketch:type="MSLayerGroup" transform="translate(31.000000, 121.000000)">
+                <path d="M114.132225,132.498853 C114.048125,132.645822 114,132.816821 114,133 C114,133.552285 114.450975,134 114.990778,134 L119.009222,134 C119.556414,134 120,133.556135 120,133 C120,132.447715 119.549025,132 119.009222,132 L116,132 L116,128.999807 C116,128.447629 115.556135,128 115,128 C114.447715,128 114,128.443717 114,128.999807 L114,132.000193 C114,132.181788 114.048007,132.352076 114.132225,132.498853 Z M115,143 C120.522848,143 125,138.522848 125,133 C125,127.477152 120.522848,123 115,123 C109.477152,123 105,127.477152 105,133 C105,138.522848 109.477152,143 115,143 Z M115,141 C119.418278,141 123,137.418278 123,133 C123,128.581722 119.418278,125 115,125 C110.581722,125 107,128.581722 107,133 C107,137.418278 110.581722,141 115,141 Z" id="icon-clock" sketch:type="MSShapeGroup"></path>
+            </g>
+        </g>
+    </g>
+</svg>
