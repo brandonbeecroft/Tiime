@@ -24,8 +24,8 @@
 
 -(void)timeButtonTapped:(UIButton *)sender {
 
-    if ([self.delegate respondsToSelector:@selector(startTimer:)]) {
-        [self.delegate startTimer:sender];
+    if ([self.delegate respondsToSelector:@selector(startTimer:atIndex:)]) {
+        [self.delegate startTimer:self atIndex:(1)];
     }
 }
 

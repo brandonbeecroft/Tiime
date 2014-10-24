@@ -23,6 +23,8 @@
 
 @protocol TimeButtonDelegate <NSObject>
 
--(void)startTimer:(UIButton *)sender;
+@optional
+//-(void)startTimer:(UIButton *)sender;
+-(void)startTimer:(CustomCellTableViewCell *)customCell atIndex:(NSInteger)index;
 
 @end
