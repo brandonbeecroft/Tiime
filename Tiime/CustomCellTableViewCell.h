@@ -8,11 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol TimeButtonDelegate;
+
 @interface CustomCellTableViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *projectName;
 @property (strong, nonatomic) IBOutlet UILabel *clientName;
 @property (strong, nonatomic) IBOutlet UILabel *projectTime;
 @property (strong, nonatomic) IBOutlet UIButton *timerButton;
+
+@property (nonatomic, assign) id<TimeButtonDelegate>delegate;
+
+@end
+
+@protocol TimeButtonDelegate <NSObject>
+
+-(void)startTimer:(UIButton *)sender;
 
 @end

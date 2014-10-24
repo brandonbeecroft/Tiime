@@ -9,7 +9,7 @@
 #import "TiimeViewController.h"
 #import "CustomCellTableViewCell.h"
 
-@interface TiimeViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface TiimeViewController () <UITableViewDataSource, UITableViewDelegate, TimeButtonDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
@@ -49,6 +49,7 @@ static NSString *cellId = @"Cell";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
     CustomCellTableViewCell * customCell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    customCell.delegate = self;
 
     PFObject *project = [self.userProjects objectAtIndex:indexPath.row];
 
@@ -62,7 +63,6 @@ static NSString *cellId = @"Cell";
     }
 
     customCell.timerButton.tag = indexPath.row;
-    [customCell.timerButton addTarget:self action:@selector(timeChange:withLabel:) forControlEvents:UIControlEventTouchUpInside];
     customCell.projectTime.tag = indexPath.row;
 
     return customCell;
@@ -107,10 +107,9 @@ static NSString *cellId = @"Cell";
     }
 }
 
--(void)timeChange:(UIButton *)button withLabel:(UILabel *)label {
-    NSLog(@"Button at row: %lu", button.tag);
+-(void)startTimer:(UIButton *)sender {
+    NSLog(@"Button at row");
 }
-
 
 /*
  // Override to support conditional editing of the table view.
