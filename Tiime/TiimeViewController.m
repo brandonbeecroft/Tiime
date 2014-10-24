@@ -21,8 +21,8 @@ static NSString *cellId = @"Cell";
 
 -(void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-
     [self queryProjectList:self.tableView];
+    [self.tableView reloadData];
 }
 
 - (void)viewDidLoad {
@@ -33,8 +33,6 @@ static NSString *cellId = @"Cell";
 
     self.mainTitleNavigationBar.text = dateString;
     self.subTitleNavigationBar.text = @"0:14 hrs today";
-
-    //[self.tableView registerClass:[CustomCellTableViewCell class] forCellReuseIdentifier:cellId];
 }
 
 #pragma mark - Table view data source
@@ -50,17 +48,21 @@ static NSString *cellId = @"Cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-
     CustomCellTableViewCell * customCell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
 
     PFObject *project = [self.userProjects objectAtIndex:indexPath.row];
 
     customCell.projectName.text = [project objectForKey:@"projectName"];
     customCell.clientName.text = [project objectForKey:@"clientName"];
-    customCell.projectTime.text = @"12:45:03";
+    NSString *projTimeTemp = [project objectForKey:@"projectTime"];
+    if (projTimeTemp == nil) {
+        customCell.projectTime.text = [NSString stringWithFormat:@"0:00"];
+    } else {
+        customCell.projectTime.text = [NSString stringWithFormat:@"%@",projTimeTemp];
+    }
 
     customCell.timerButton.tag = indexPath.row;
-    [customCell.timerButton addTarget:self action:@selector(timeChange:) forControlEvents:UIControlEventTouchUpInside];
+    [customCell.timerButton addTarget:self action:@selector(timeChange:withLabel:) forControlEvents:UIControlEventTouchUpInside];
     customCell.projectTime.tag = indexPath.row;
 
     return customCell;
@@ -105,9 +107,11 @@ static NSString *cellId = @"Cell";
     }
 }
 
--(void)timeChange:(UIButton *)button {
+-(void)timeChange:(UIButton *)button withLabel:(UILabel *)label {
     NSLog(@"Button at row: %lu", button.tag);
 }
+
+
 /*
  // Override to support conditional editing of the table view.
  - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {

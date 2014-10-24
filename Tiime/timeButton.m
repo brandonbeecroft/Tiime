@@ -11,13 +11,10 @@
 
 @implementation timeButton
 
-
-// Only override drawRect: if you perform custom drawing.
 // An empty implementation adversely affects performance during animation.
 - (void)drawRect:(CGRect)rect {
     // Drawing code
-    [StyleKit drawTimeIcon];
+    [StyleKit drawTimeIconWithFrame:CGRectMake(0, 0, 22, 22)];
 }
-
 
 @end
