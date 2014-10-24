@@ -47,8 +47,8 @@
                                                     <color key="textColor" red="0.43921568630000002" green="0.43921568630000002" blue="0.43921568630000002" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55z-Ya-jku" customClass="timeButton">
-                                                    <rect key="frame" x="326" y="15" width="28" height="24"/>
+                                                <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55z-Ya-jku" customClass="timeButton">
+                                                    <rect key="frame" x="332" y="17" width="28" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <inset key="contentEdgeInsets" minX="14" minY="14" maxX="14" maxY="14"/>
                                                     <state key="normal">
@@ -67,14 +67,14 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="55z-Ya-jku" firstAttribute="top" secondItem="qrP-Yu-fxo" secondAttribute="topMargin" constant="7" id="G2j-QB-15A"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="55z-Ya-jku" secondAttribute="trailing" constant="13" id="Hq7-jA-O36"/>
+                                                <constraint firstItem="55z-Ya-jku" firstAttribute="top" secondItem="qrP-Yu-fxo" secondAttribute="topMargin" constant="9" id="G2j-QB-15A"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="55z-Ya-jku" secondAttribute="trailing" constant="7" id="Hq7-jA-O36"/>
                                                 <constraint firstItem="QnL-mn-8xA" firstAttribute="leading" secondItem="qrP-Yu-fxo" secondAttribute="leadingMargin" constant="8" id="TJe-jM-kNG"/>
                                                 <constraint firstItem="LeX-Ba-DuB" firstAttribute="leading" secondItem="qrP-Yu-fxo" secondAttribute="leadingMargin" constant="8" id="fIj-Qc-EdR"/>
                                                 <constraint firstItem="LeX-Ba-DuB" firstAttribute="top" secondItem="qrP-Yu-fxo" secondAttribute="topMargin" constant="5" id="jZt-r9-eTb"/>
-                                                <constraint firstItem="55z-Ya-jku" firstAttribute="leading" secondItem="uAC-RO-g8R" secondAttribute="trailing" constant="32" id="jvj-wZ-5T6"/>
+                                                <constraint firstItem="55z-Ya-jku" firstAttribute="leading" secondItem="uAC-RO-g8R" secondAttribute="trailing" constant="38" id="jvj-wZ-5T6"/>
                                                 <constraint firstItem="uAC-RO-g8R" firstAttribute="centerY" secondItem="QnL-mn-8xA" secondAttribute="centerY" constant="-12" id="qaz-4Z-BSD"/>
-                                                <constraint firstAttribute="centerY" secondItem="55z-Ya-jku" secondAttribute="centerY" constant="2.5" id="tPW-Lv-GDe"/>
+                                                <constraint firstAttribute="centerY" secondItem="55z-Ya-jku" secondAttribute="centerY" constant="0.5" id="tPW-Lv-GDe"/>
                                                 <constraint firstItem="QnL-mn-8xA" firstAttribute="top" secondItem="LeX-Ba-DuB" secondAttribute="bottom" constant="-3" id="zwV-5O-zpt"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -82,6 +82,7 @@
                                             <outlet property="clientName" destination="QnL-mn-8xA" id="mXu-gA-zYV"/>
                                             <outlet property="projectName" destination="LeX-Ba-DuB" id="CpB-DY-hFe"/>
                                             <outlet property="projectTime" destination="uAC-RO-g8R" id="Gg9-Fk-Pg7"/>
+                                            <outlet property="timerButton" destination="55z-Ya-jku" id="rmJ-qe-H30"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

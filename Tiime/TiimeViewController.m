@@ -8,10 +8,12 @@
 #import <Parse/Parse.h>
 #import "TiimeViewController.h"
 #import "CustomCellTableViewCell.h"
+#import "timeButton.h"
 
 @interface TiimeViewController () <UITableViewDataSource, UITableViewDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, strong) CustomCellTableViewCell *customCell;
 
 @end
 
@@ -48,24 +50,27 @@ static NSString *cellId = @"Cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    CustomCellTableViewCell * customCell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    self.customCell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
 
     PFObject *project = [self.userProjects objectAtIndex:indexPath.row];
 
-    customCell.projectName.text = [project objectForKey:@"projectName"];
-    customCell.clientName.text = [project objectForKey:@"clientName"];
+    self.customCell.projectName.text = [project objectForKey:@"projectName"];
+    self.customCell.clientName.text = [project objectForKey:@"clientName"];
     NSString *projTimeTemp = [project objectForKey:@"projectTime"];
     if (projTimeTemp == nil) {
-        customCell.projectTime.text = [NSString stringWithFormat:@"0:00"];
+        self.customCell.projectTime.text = [NSString stringWithFormat:@"0:00"];
     } else {
-        customCell.projectTime.text = [NSString stringWithFormat:@"%@",projTimeTemp];
+        self.customCell.projectTime.text = [NSString stringWithFormat:@"%@",projTimeTemp];
     }
 
-    customCell.timerButton.tag = indexPath.row;
-    [customCell.timerButton addTarget:self action:@selector(timeChange:withLabel:) forControlEvents:UIControlEventTouchUpInside];
-    customCell.projectTime.tag = indexPath.row;
+    UIButton *timeBtn = (UIButton *)[self.customCell viewWithTag:100];
+    self.customCell.timerButton = timeBtn;
+    self.customCell.timerButton.tag = indexPath.row;
+    [self.customCell.timerButton addTarget:self action:@selector(timeChange:) forControlEvents:UIControlEventTouchUpInside];
 
-    return customCell;
+    self.customCell.projectTime.tag = indexPath.row;
+
+    return self.customCell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -107,8 +112,48 @@ static NSString *cellId = @"Cell";
     }
 }
 
--(void)timeChange:(UIButton *)button withLabel:(UILabel *)label {
+#pragma mark - Time increment functions
+
+-(void)timeChange:(UIButton *)button {
     NSLog(@"Button at row: %lu", button.tag);
+
+    self.timeHasStarted = !self.timeHasStarted;
+
+    if (self.timeHasStarted) {
+        NSLog(@"Timer has been clicked. do something.");
+        [self increaseTime];
+        
+    } else {
+        NSLog(@"Timer has been stopped!");
+    }
+}
+
+-(void)increaseTime {
+
+    if (self.seconds < 60 ) {
+        self.seconds++;
+    }
+
+    if (self.minutes > 59) {
+        if (self.seconds == 59) {
+            self.seconds = 0;
+            self.minutes++;
+        }
+    }
+
+    [self updateTimeLabel];
+
+    if (self.timeHasStarted) {
+        [self performSelector:@selector(increaseTime) withObject:nil afterDelay:1.0];
+    }
+}
+
+-(void)updateTimeLabel {
+    if (self.seconds < 10) {
+        self.customCell.projectTime.text = [NSString stringWithFormat:@"%ld:0%ld", (long)self.minutes, (long)self.seconds];
+    } else {
+        self.customCell.projectTime.text = [NSString stringWithFormat:@"%ld:%ld",(long)self.minutes, (long)self.seconds];
+    }
 }
 
 
