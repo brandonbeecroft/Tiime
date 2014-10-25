@@ -12,6 +12,7 @@
 @interface TiimeViewController () <UITableViewDataSource, UITableViewDelegate, TimeButtonDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (nonatomic, assign) CustomCellTableViewCell *customCell;
 
 @end
 
@@ -48,24 +49,21 @@ static NSString *cellId = @"Cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    CustomCellTableViewCell * customCell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    customCell.delegate = self;
+    self.customCell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    self.customCell.delegate = self;
 
     PFObject *project = [self.userProjects objectAtIndex:indexPath.row];
 
-    customCell.projectName.text = [project objectForKey:@"projectName"];
-    customCell.clientName.text = [project objectForKey:@"clientName"];
+    self.customCell.projectName.text = [project objectForKey:@"projectName"];
+    self.customCell.clientName.text = [project objectForKey:@"clientName"];
     NSString *projTimeTemp = [project objectForKey:@"projectTime"];
     if (projTimeTemp == nil) {
-        customCell.projectTime.text = [NSString stringWithFormat:@"0:00"];
+        self.customCell.projectTime.text = [NSString stringWithFormat:@"0:00"];
     } else {
-        customCell.projectTime.text = [NSString stringWithFormat:@"%@",projTimeTemp];
+        self.customCell.projectTime.text = [NSString stringWithFormat:@"%@",projTimeTemp];
     }
 
-    customCell.timerButton.tag = indexPath.row;
-    customCell.projectTime.tag = indexPath.row;
-
-    return customCell;
+    return self.customCell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -110,16 +108,36 @@ static NSString *cellId = @"Cell";
 -(void)customCellStartTimer:(CustomCellTableViewCell *)customCell {
     // execute timer functions
     // TEMP:
-    customCell.projectTime.text = @"12:00";
+    //customCell.projectTime.text = @"0:00";
 
     // check to see if another timer is going.
 
     // if timer is going, stop that time
 
     // start new timer once other timer is stopped
-
-    // update time label each second.
+    self.timeHasStarted = !self.timeHasStarted;
 
 }
+
+//-(void)increaseTimeForCell:(CustomCellTableViewCell *)cell {
+//    NSLog(@"time is increasing");
+//    cell.projectTime.text = [NSString stringWithFormat:@"%ld:0%ld", (long)self.minute, (long)self.second];
+//
+//    if (self.second > 0 ) {
+//        self.second++;
+//    }
+//
+//    if (self.minute > 0) {
+//        if (self.second == 59) {
+//            self.second = 0;
+//            self.minute++;
+//        }
+//    }
+//
+//    if (self.timeHasStarted) {
+//        [self performSelector:@selector(increaseTimeForCell:) withObject:nil afterDelay:1.0];
+//    }
+//}
+
 
 @end

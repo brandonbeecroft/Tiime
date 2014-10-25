@@ -12,7 +12,14 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *mainTitleNavigationBar;
 @property (weak, nonatomic) IBOutlet UILabel *subTitleNavigationBar;
-@property (nonatomic, assign) BOOL timeHasStarted;
 @property (nonatomic, strong) NSArray *userProjects;
+
+// timer properties
+@property (nonatomic, assign) BOOL timeHasStarted;
+
+@property (nonatomic, assign) NSInteger hour;
+@property (nonatomic, assign) NSInteger minute;
+@property (nonatomic, assign) NSInteger second;
+
 
 @end
