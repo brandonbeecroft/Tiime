@@ -12,8 +12,10 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    UIButton *button = (UIButton *)[self viewWithTag:100];
-    [button addTarget:self action:@selector(timeButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
+
+    // what would go here?
+//    UIButton *button = (UIButton *)[self viewWithTag:100];
+//    [button addTarget:self action:@selector(timeButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
