@@ -12,7 +12,6 @@
 @interface TiimeViewController () <UITableViewDataSource, UITableViewDelegate, TimeButtonDelegate>
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet CustomCellTableViewCell *customCell;
 
 @end
 
@@ -49,24 +48,24 @@ static NSString *cellId = @"Cell";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
 
-    self.customCell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
-    self.customCell.delegate = self;
+    CustomCellTableViewCell * customCell = [tableView dequeueReusableCellWithIdentifier:cellId forIndexPath:indexPath];
+    customCell.delegate = self;
 
     PFObject *project = [self.userProjects objectAtIndex:indexPath.row];
 
-    self.customCell.projectName.text = [project objectForKey:@"projectName"];
-    self.customCell.clientName.text = [project objectForKey:@"clientName"];
+    customCell.projectName.text = [project objectForKey:@"projectName"];
+    customCell.clientName.text = [project objectForKey:@"clientName"];
     NSString *projTimeTemp = [project objectForKey:@"projectTime"];
     if (projTimeTemp == nil) {
-        self.customCell.projectTime.text = [NSString stringWithFormat:@"0:00"];
+        customCell.projectTime.text = [NSString stringWithFormat:@"0:00"];
     } else {
-        self.customCell.projectTime.text = [NSString stringWithFormat:@"%@",projTimeTemp];
+        customCell.projectTime.text = [NSString stringWithFormat:@"%@",projTimeTemp];
     }
 
-    self.customCell.timerButton.tag = indexPath.row;
-    self.customCell.projectTime.tag = indexPath.row;
+    customCell.timerButton.tag = indexPath.row;
+    customCell.projectTime.tag = indexPath.row;
 
-    return self.customCell;
+    return customCell;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

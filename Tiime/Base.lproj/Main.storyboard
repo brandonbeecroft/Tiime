@@ -82,6 +82,7 @@
                                             <outlet property="clientName" destination="QnL-mn-8xA" id="mXu-gA-zYV"/>
                                             <outlet property="projectName" destination="LeX-Ba-DuB" id="CpB-DY-hFe"/>
                                             <outlet property="projectTime" destination="uAC-RO-g8R" id="Gg9-Fk-Pg7"/>
+                                            <outlet property="timerButton" destination="55z-Ya-jku" id="ETW-HP-0xn"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -122,7 +123,6 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
-                        <outlet property="customCell" destination="a0j-oZ-pxY" id="E4U-g1-ImN"/>
                         <outlet property="mainTitleNavigationBar" destination="uSc-Kq-ffO" id="Xe0-qI-Scr"/>
                         <outlet property="subTitleNavigationBar" destination="Ggi-Ha-RfO" id="sWG-c5-IE1"/>
                         <outlet property="tableView" destination="1aC-bj-P4j" id="qLz-9X-GeX"/>
