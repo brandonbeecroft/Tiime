@@ -38,7 +38,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="1000" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uAC-RO-g8R">
-                                                    <rect key="frame" x="226" y="19" width="68" height="21"/>
+                                                    <rect key="frame" x="226" y="22" width="68" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="21" id="5cJ-sl-fzC"/>
                                                         <constraint firstAttribute="width" constant="68" id="ZEK-e0-glx"/>
@@ -48,7 +48,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="55z-Ya-jku" customClass="timeButton">
-                                                    <rect key="frame" x="326" y="15" width="28" height="24"/>
+                                                    <rect key="frame" x="326" y="19" width="28" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <inset key="contentEdgeInsets" minX="14" minY="14" maxX="14" maxY="14"/>
                                                     <state key="normal">
@@ -67,14 +67,14 @@
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="55z-Ya-jku" firstAttribute="top" secondItem="qrP-Yu-fxo" secondAttribute="topMargin" constant="7" id="G2j-QB-15A"/>
+                                                <constraint firstItem="55z-Ya-jku" firstAttribute="top" secondItem="qrP-Yu-fxo" secondAttribute="topMargin" constant="11" id="G2j-QB-15A"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="55z-Ya-jku" secondAttribute="trailing" constant="13" id="Hq7-jA-O36"/>
                                                 <constraint firstItem="QnL-mn-8xA" firstAttribute="leading" secondItem="qrP-Yu-fxo" secondAttribute="leadingMargin" constant="8" id="TJe-jM-kNG"/>
                                                 <constraint firstItem="LeX-Ba-DuB" firstAttribute="leading" secondItem="qrP-Yu-fxo" secondAttribute="leadingMargin" constant="8" id="fIj-Qc-EdR"/>
                                                 <constraint firstItem="LeX-Ba-DuB" firstAttribute="top" secondItem="qrP-Yu-fxo" secondAttribute="topMargin" constant="5" id="jZt-r9-eTb"/>
                                                 <constraint firstItem="55z-Ya-jku" firstAttribute="leading" secondItem="uAC-RO-g8R" secondAttribute="trailing" constant="32" id="jvj-wZ-5T6"/>
-                                                <constraint firstItem="uAC-RO-g8R" firstAttribute="centerY" secondItem="QnL-mn-8xA" secondAttribute="centerY" constant="-12" id="qaz-4Z-BSD"/>
-                                                <constraint firstAttribute="centerY" secondItem="55z-Ya-jku" secondAttribute="centerY" constant="2.5" id="tPW-Lv-GDe"/>
+                                                <constraint firstItem="uAC-RO-g8R" firstAttribute="centerY" secondItem="QnL-mn-8xA" secondAttribute="centerY" constant="-9" id="qaz-4Z-BSD"/>
+                                                <constraint firstAttribute="centerY" secondItem="55z-Ya-jku" secondAttribute="centerY" constant="-1.25" id="tPW-Lv-GDe"/>
                                                 <constraint firstItem="QnL-mn-8xA" firstAttribute="top" secondItem="LeX-Ba-DuB" secondAttribute="bottom" constant="-3" id="zwV-5O-zpt"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -96,7 +96,7 @@
                     <navigationItem key="navigationItem" id="dBe-iE-yA3">
                         <nil key="title"/>
                         <view key="titleView" contentMode="scaleToFill" id="I8O-xK-iWv">
-                            <rect key="frame" x="68" y="6" width="240" height="33"/>
+                            <rect key="frame" x="67.5" y="5.5" width="240" height="33"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uSc-Kq-ffO">
@@ -122,6 +122,7 @@
                     </navigationItem>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
+                        <outlet property="customCell" destination="a0j-oZ-pxY" id="E4U-g1-ImN"/>
                         <outlet property="mainTitleNavigationBar" destination="uSc-Kq-ffO" id="Xe0-qI-Scr"/>
                         <outlet property="subTitleNavigationBar" destination="Ggi-Ha-RfO" id="sWG-c5-IE1"/>
                         <outlet property="tableView" destination="1aC-bj-P4j" id="qLz-9X-GeX"/>
