@@ -8,6 +8,7 @@
 #import <Parse/Parse.h>
 #import "TiimeViewController.h"
 #import "CustomCellTableViewCell.h"
+#import "LTimer.h"
 
 @interface TiimeViewController () <UITableViewDataSource, UITableViewDelegate, TimeButtonDelegate>
 
@@ -56,6 +57,8 @@ static NSString *cellId = @"Cell";
 
     self.customCell.projectName.text = [project objectForKey:@"projectName"];
     self.customCell.clientName.text = [project objectForKey:@"clientName"];
+
+    // query last session and return the time here.
     NSString *projTimeTemp = [project objectForKey:@"projectTime"];
     if (projTimeTemp == nil) {
         self.customCell.projectTime.text = [NSString stringWithFormat:@"0:00"];
@@ -105,17 +108,54 @@ static NSString *cellId = @"Cell";
     }
 }
 
--(void)customCellStartTimer:(CustomCellTableViewCell *)customCell {
-    // execute timer functions
-    // TEMP:
-    //customCell.projectTime.text = @"0:00";
+-(void)customCellInvokeTimer:(CustomCellTableViewCell *)customCell withTag:(long)tag{
+
+    // testing
+    //NSLog(@"%i",tag);
 
     // check to see if another timer is going.
 
     // if timer is going, stop that time
 
+    // animate timer icon
+
+    // load the last completed time from Parse and show it
+    //TEMP
+    self.second = 0;
+    self.minute = 0;
+    self.hour = 0;
+
+    //animate time to show
+
     // start new timer once other timer is stopped
-    self.timeHasStarted = !self.timeHasStarted;
+    [LTimer LTimerWithTimeInterval:1 target:self userInfo:nil repeats:YES tag:(int)tag fireBlock:^(LTimer *timer, id userInfo) {
+        //customCell.projectTime.text = [NSString stringWithFormat:@"%ld", [customCell.projectTime.text integerValue] + 1];
+        self.second = self.second + 1;
+        if (self.second > 59) {
+            self.minute++;
+            self.second = 0;
+        }
+
+        if (self.minute > 59) {
+            self.hour++;
+            self.minute = 0;
+        }
+        // change format to account for seconds/minutes/hours less than double digits to have a 0 in front of them.
+        customCell.projectTime.text = [NSString stringWithFormat:@"%lu:%lu:%lu",self.hour, self.minute, self.second];
+    }];
+
+    NSLog(@"the timer is running");
+}
+
+-(void)customCellStopTimer:(CustomCellTableViewCell *)customCell withTag:(long)tag {
+    NSLog(@"timer should stop");
+
+    // stop timer
+    [LTimer freeTimerWithTag:tag];
+
+    // animate hide of timer
+
+    // save second, minute, and hour value to Parse
 
 }
 

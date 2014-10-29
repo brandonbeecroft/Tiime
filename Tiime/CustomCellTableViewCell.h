@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *clientName;
 @property (strong, nonatomic) IBOutlet UILabel *projectTime;
 @property (strong, nonatomic) IBOutlet UIButton *timerButton;
+@property (nonatomic, assign) BOOL isTimerActive;
 
 @property (nonatomic, assign) id<TimeButtonDelegate>delegate;
 
@@ -24,6 +25,7 @@
 @protocol TimeButtonDelegate <NSObject>
 
 @required
--(void)customCellStartTimer:(CustomCellTableViewCell *)customCell;
+-(void)customCellInvokeTimer:(CustomCellTableViewCell *)customCell withTag:(long)tag;
+-(void)customCellStopTimer:(CustomCellTableViewCell *)customCell withTag:(long)tag;
 
 @end

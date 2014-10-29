@@ -12,22 +12,16 @@
 
 - (void)awakeFromNib {
     // Initialization code
-
-    // what would go here?
-//    UIButton *button = (UIButton *)[self viewWithTag:100];
     [self.timerButton addTarget:self action:@selector(timeButtonTapped:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
-
 -(void)timeButtonTapped:(UIButton *)sender {
+    self.isTimerActive = !self.isTimerActive;
 
-    if ([self.delegate respondsToSelector:@selector(customCellStartTimer:)]) {
-        [self.delegate customCellStartTimer:self];
+    if (self.isTimerActive) {
+        [self.delegate customCellInvokeTimer:self withTag:self.timerButton.tag];
+    } else {
+        [self.delegate customCellStopTimer:self withTag:self.timerButton.tag];
     }
 }
 

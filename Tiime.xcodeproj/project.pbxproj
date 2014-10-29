@@ -18,6 +18,7 @@
 		E8875F7319F8A0B400E6315D /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8875F7219F8A0B400E6315D /* Images.xcassets */; };
 		E8875F7619F8A0B400E6315D /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = E8875F7419F8A0B400E6315D /* LaunchScreen.xib */; };
 		E8875F8219F8A0B500E6315D /* TiimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = E8875F8119F8A0B500E6315D /* TiimeTests.m */; };
+		E8A29D2819FC3596002CE74F /* LTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = E8A29D2719FC3596002CE74F /* LTimer.m */; };
 		E8AA4E5E19F9C82C005A8AA3 /* CustomCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AA4E5D19F9C82C005A8AA3 /* CustomCellTableViewCell.m */; };
 		E8AA4E6119FA0D31005A8AA3 /* StyleKit.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AA4E6019FA0D31005A8AA3 /* StyleKit.m */; };
 		E8AA4E6419FA0D56005A8AA3 /* timeButton.m in Sources */ = {isa = PBXBuildFile; fileRef = E8AA4E6319FA0D56005A8AA3 /* timeButton.m */; };
@@ -54,6 +55,8 @@
 		E8875F7B19F8A0B500E6315D /* TiimeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TiimeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E8875F8019F8A0B500E6315D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E8875F8119F8A0B500E6315D /* TiimeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TiimeTests.m; sourceTree = "<group>"; };
+		E8A29D2619FC3596002CE74F /* LTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTimer.h; sourceTree = "<group>"; };
+		E8A29D2719FC3596002CE74F /* LTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTimer.m; sourceTree = "<group>"; };
 		E8AA4E5C19F9C82C005A8AA3 /* CustomCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CustomCellTableViewCell.h; sourceTree = "<group>"; };
 		E8AA4E5D19F9C82C005A8AA3 /* CustomCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CustomCellTableViewCell.m; sourceTree = "<group>"; };
 		E8AA4E5F19FA0D31005A8AA3 /* StyleKit.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StyleKit.h; sourceTree = "<group>"; };
@@ -143,6 +146,8 @@
 				E8AA4E5D19F9C82C005A8AA3 /* CustomCellTableViewCell.m */,
 				E81F641119F99DE200A39041 /* AddNewProjectViewController.h */,
 				E81F641219F99DE200A39041 /* AddNewProjectViewController.m */,
+				E8A29D2619FC3596002CE74F /* LTimer.h */,
+				E8A29D2719FC3596002CE74F /* LTimer.m */,
 				E81F640E19F99AAA00A39041 /* ProjectController.h */,
 				E81F640F19F99AAA00A39041 /* ProjectController.m */,
 				E8875F7219F8A0B400E6315D /* Images.xcassets */,
@@ -191,6 +196,7 @@
 				E8875F5F19F8A0B400E6315D /* Frameworks */,
 				E8875F6019F8A0B400E6315D /* Resources */,
 				3F57EAE8C2EC6F6360A28E5F /* Copy Pods Resources */,
+				E86DEB2919FF4D2A00AD64EE /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -230,6 +236,7 @@
 				TargetAttributes = {
 					E8875F6119F8A0B400E6315D = {
 						CreatedOnToolsVersion = 6.1;
+						DevelopmentTeam = 53R99LMK64;
 					};
 					E8875F7A19F8A0B500E6315D = {
 						CreatedOnToolsVersion = 6.1;
@@ -293,6 +300,19 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Tiime/Pods-Tiime-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		E86DEB2919FF4D2A00AD64EE /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "";
+		};
 		F9A6D7825E0EF59F45F0906F /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -322,6 +342,7 @@
 				E8875F6819F8A0B400E6315D /* main.m in Sources */,
 				E808CFF919F8A8A400F3BD71 /* TiimeViewController.m in Sources */,
 				E81F641319F99DE200A39041 /* AddNewProjectViewController.m in Sources */,
+				E8A29D2819FC3596002CE74F /* LTimer.m in Sources */,
 				E8AA4E5E19F9C82C005A8AA3 /* CustomCellTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -398,7 +419,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -433,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -445,9 +466,13 @@
 			baseConfigurationReference = 3D824B0D6F7757AF46661BF5 /* Pods-Tiime.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tiime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -456,9 +481,13 @@
 			baseConfigurationReference = D0EF1F9C3F97459E19553ECB /* Pods-Tiime.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Tiime/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
