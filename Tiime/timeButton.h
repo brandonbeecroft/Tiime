@@ -10,4 +10,6 @@
 
 @interface timeButton : UIButton
 
+@property (nonatomic, assign) BOOL isPressed;
+
 @end

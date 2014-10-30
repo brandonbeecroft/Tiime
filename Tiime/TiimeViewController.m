@@ -14,6 +14,7 @@
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) CustomCellTableViewCell *customCell;
+@property (nonatomic, assign) NSNumber *totalSessionSeconds;
 
 @end
 
@@ -57,6 +58,7 @@ static NSString *cellId = @"Cell";
 
     self.customCell.projectName.text = [project objectForKey:@"projectName"];
     self.customCell.clientName.text = [project objectForKey:@"clientName"];
+    self.customCell.timerButton.tag = indexPath.row;
 
     // query last session and return the time here.
     NSString *projTimeTemp = [project objectForKey:@"projectTime"];
@@ -89,6 +91,48 @@ static NSString *cellId = @"Cell";
     }
 }
 
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
+    return YES;
+}
+
+//- (NSArray *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    
+//    UITableViewRowAction *moreAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"More" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+//        // show UIActionSheet
+//    }];
+//    moreAction.backgroundColor = [UIColor greenColor];
+//    
+//    UITableViewRowAction *flagAction = [UITableViewRowAction rowActionWithStyle:UITableViewRowActionStyleDefault title:@"Flag" handler:^(UITableViewRowAction *action, NSIndexPath *indexPath) {
+//        // flag the row
+//    }];
+//    flagAction.backgroundColor = [UIColor yellowColor];
+//    
+//    return @[moreAction, flagAction];
+//}
+
+
+-(void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    [tableView beginUpdates];
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        NSLog(@"delete row");
+        //PFObject *project = [self.userProjects objectAtIndex:indexPath.row];
+        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
+        NSMutableArray *mutableUserProjects = self.userProjects.mutableCopy;
+        
+        [self.userProjects[indexPath.row] deleteInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (!error) {
+                [self queryProjectList:tableView];
+            }
+        }];
+        
+        [mutableUserProjects removeObjectAtIndex:indexPath.row];
+        self.userProjects = mutableUserProjects;
+        
+    }
+    [tableView endUpdates];
+}
+
 -(void)queryProjectList:(UITableView *)tableView {
 
     if ([PFUser currentUser].objectId == nil) {
@@ -108,16 +152,37 @@ static NSString *cellId = @"Cell";
     }
 }
 
--(void)customCellInvokeTimer:(CustomCellTableViewCell *)customCell withTag:(long)tag{
+#pragma mark - Work with Timer
 
+-(void)customCellInvokeTimer:(CustomCellTableViewCell *)customCell withTag:(int)tag{
+
+    self.session = [PFObject objectWithClassName:@"Sessions"];
+    self.project = self.userProjects[tag];
+    self.totalSessionSeconds = 0;
+    
+    
     // testing
-    //NSLog(@"%i",tag);
-
+    NSLog(@"project id: %@",self.customCell.projectID);
+    NSLog(@"project name: %@",self.customCell.projectName.text);
+    NSLog(@"button tag: %lu",(long)tag);
+    
+    
     // check to see if another timer is going.
-
     // if timer is going, stop that time
 
+    
     // animate timer icon
+    
+
+    // set flag of session start
+    self.session[@"hasStarted"] = @YES;
+    
+    self.session[@"parent"] = self.project;
+    
+    [self.session saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        NSLog(@"session started");
+    }];
+
 
     // load the last completed time from Parse and show it
     //TEMP
@@ -125,12 +190,18 @@ static NSString *cellId = @"Cell";
     self.minute = 0;
     self.hour = 0;
 
+    
     //animate time to show
 
+    
     // start new timer once other timer is stopped
     [LTimer LTimerWithTimeInterval:1 target:self userInfo:nil repeats:YES tag:(int)tag fireBlock:^(LTimer *timer, id userInfo) {
         //customCell.projectTime.text = [NSString stringWithFormat:@"%ld", [customCell.projectTime.text integerValue] + 1];
-        self.second = self.second + 1;
+        NSInteger total = self.totalSessionSeconds.integerValue;
+        total++;
+        self.totalSessionSeconds = [NSNumber numberWithInteger:total];
+        
+        self.second += 1;
         if (self.second > 59) {
             self.minute++;
             self.second = 0;
@@ -147,15 +218,43 @@ static NSString *cellId = @"Cell";
     NSLog(@"the timer is running");
 }
 
--(void)customCellStopTimer:(CustomCellTableViewCell *)customCell withTag:(long)tag {
+-(void)customCellStopTimer:(CustomCellTableViewCell *)customCell withTag:(int)tag {
     NSLog(@"timer should stop");
 
     // stop timer
     [LTimer freeTimerWithTag:tag];
 
     // animate hide of timer
+    
+    
 
-    // save second, minute, and hour value to Parse
+    // save total seconds of session to Parse
+    
+    self.session[@"numberOfSeconds"] = self.totalSessionSeconds;
+    self.session[@"sessionDate"] = [NSDate date];
+    self.session[@"hasStopped"] = @YES;
+    
+    self.session[@"parent"] = self.project;
+    
+    [self.session saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+        NSLog(@"session saved");
+    }];
+    
+     
+//    PFObject *newProject = [PFObject objectWithClassName:@"Projects"];
+//    [newProject setObject:[PFUser currentUser] forKey:@"createdBy"];
+//    newProject[@"projectName"] = projectName;
+//    newProject[@"clientName"] = clientName;
+//    newProject[@"projectNote"] = projectNote;
+//    
+//    [newProject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+//        if (succeeded) {
+//            PFRelation *relation = [[PFUser currentUser] relationForKey:@"usersProjects"];
+//            [relation addObject:newProject];
+//            [newProject saveEventually];
+//        }
+//    }];
+
 
 }
 

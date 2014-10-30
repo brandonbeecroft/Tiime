@@ -19,9 +19,9 @@
     self.isTimerActive = !self.isTimerActive;
 
     if (self.isTimerActive) {
-        [self.delegate customCellInvokeTimer:self withTag:self.timerButton.tag];
+        [self.delegate customCellInvokeTimer:self withTag:(int)self.timerButton.tag];
     } else {
-        [self.delegate customCellStopTimer:self withTag:self.timerButton.tag];
+        [self.delegate customCellStopTimer:self withTag:(int)self.timerButton.tag];
     }
 }
 

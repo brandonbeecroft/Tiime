@@ -21,5 +21,9 @@
 @property (nonatomic, assign) NSInteger minute;
 @property (nonatomic, assign) NSInteger second;
 
+// Parse properties
+@property (nonatomic, strong) PFObject *project;
+@property (nonatomic, strong) PFObject *session;
+
 
 @end
