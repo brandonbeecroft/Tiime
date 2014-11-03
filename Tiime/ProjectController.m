@@ -32,6 +32,7 @@
     newProject[@"projectName"] = projectName;
     newProject[@"clientName"] = clientName;
     newProject[@"projectNote"] = projectNote;
+    newProject[@"projectTime"] = @0;
 
     [newProject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         if (succeeded) {

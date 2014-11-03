@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (nonatomic, assign) CustomCellTableViewCell *customCell;
 @property (nonatomic, assign) NSNumber *totalSessionSeconds;
+//@property (nonatomic, strong) PFObject *myObj;
 
 @end
 
@@ -55,17 +56,22 @@ static NSString *cellId = @"Cell";
     self.customCell.delegate = self;
 
     PFObject *project = [self.userProjects objectAtIndex:indexPath.row];
-
+    
     self.customCell.projectName.text = [project objectForKey:@"projectName"];
     self.customCell.clientName.text = [project objectForKey:@"clientName"];
+    self.customCell.projectID = project.objectId;
+    
     self.customCell.timerButton.tag = indexPath.row;
 
     // query last session and return the time here.
     NSString *projTimeTemp = [project objectForKey:@"projectTime"];
+    int number = [[project objectForKey:@"projectTime"] intValue];
+    
     if (projTimeTemp == nil) {
         self.customCell.projectTime.text = [NSString stringWithFormat:@"0:00"];
     } else {
-        self.customCell.projectTime.text = [NSString stringWithFormat:@"%@",projTimeTemp];
+        //do conversion from the number of seconds to hh:mm:ss
+        self.customCell.projectTime.text = [self timeFormatted:number];
     }
 
     return self.customCell;
@@ -116,7 +122,6 @@ static NSString *cellId = @"Cell";
     [tableView beginUpdates];
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         NSLog(@"delete row");
-        //PFObject *project = [self.userProjects objectAtIndex:indexPath.row];
         [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationTop];
         NSMutableArray *mutableUserProjects = self.userProjects.mutableCopy;
         
@@ -143,8 +148,6 @@ static NSString *cellId = @"Cell";
 
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             if (!error) {
-                // do something with objects?
-                NSLog(@"Object count: %li",objects.count);
                 self.userProjects = objects;
                 [tableView reloadData];
             }
@@ -152,51 +155,43 @@ static NSString *cellId = @"Cell";
     }
 }
 
+
 #pragma mark - Work with Timer
 
 -(void)customCellInvokeTimer:(CustomCellTableViewCell *)customCell withTag:(int)tag{
 
+    // cancel any existing timers
+    [LTimer freeTimerWithTag:tag];
+    
+    
+    // animate timer icon
+    // TODO
+    
+    
+    // assign the the objects to work with
     self.session = [PFObject objectWithClassName:@"Sessions"];
     self.project = self.userProjects[tag];
     self.totalSessionSeconds = 0;
     
     
-    // testing
-    NSLog(@"project id: %@",self.customCell.projectID);
-    NSLog(@"project name: %@",self.customCell.projectName.text);
-    NSLog(@"button tag: %lu",(long)tag);
-    
-    
-    // check to see if another timer is going.
-    // if timer is going, stop that time
-
-    
-    // animate timer icon
-    
-
     // set flag of session start
     self.session[@"hasStarted"] = @YES;
-    
     self.session[@"parent"] = self.project;
-    
     [self.session saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        NSLog(@"session started");
+        NSLog(@"session started and saved");
     }];
 
 
-    // load the last completed time from Parse and show it
+    // load the last completed total time from Parse and show it
     //TEMP
-    self.second = 0;
-    self.minute = 0;
-    self.hour = 0;
-
+    
     
     //animate time to show
 
     
     // start new timer once other timer is stopped
     [LTimer LTimerWithTimeInterval:1 target:self userInfo:nil repeats:YES tag:(int)tag fireBlock:^(LTimer *timer, id userInfo) {
-        //customCell.projectTime.text = [NSString stringWithFormat:@"%ld", [customCell.projectTime.text integerValue] + 1];
+    
         NSInteger total = self.totalSessionSeconds.integerValue;
         total++;
         self.totalSessionSeconds = [NSNumber numberWithInteger:total];
@@ -211,11 +206,10 @@ static NSString *cellId = @"Cell";
             self.hour++;
             self.minute = 0;
         }
+        
         // change format to account for seconds/minutes/hours less than double digits to have a 0 in front of them.
-        customCell.projectTime.text = [NSString stringWithFormat:@"%lu:%lu:%lu",self.hour, self.minute, self.second];
+        customCell.projectTime.text = [NSString stringWithFormat:@"%lu:%lu:%lu",(long)self.hour, (long)self.minute, (long)self.second];
     }];
-
-    NSLog(@"the timer is running");
 }
 
 -(void)customCellStopTimer:(CustomCellTableViewCell *)customCell withTag:(int)tag {
@@ -228,8 +222,6 @@ static NSString *cellId = @"Cell";
     
     
 
-    // save total seconds of session to Parse
-    
     self.session[@"numberOfSeconds"] = self.totalSessionSeconds;
     self.session[@"sessionDate"] = [NSDate date];
     self.session[@"hasStopped"] = @YES;
@@ -237,46 +229,53 @@ static NSString *cellId = @"Cell";
     self.session[@"parent"] = self.project;
     
     [self.session saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        NSLog(@"session saved");
+        if (succeeded) {
+            NSLog(@"session saved");
+            self.session = nil;
+        }
     }];
     
-     
-//    PFObject *newProject = [PFObject objectWithClassName:@"Projects"];
-//    [newProject setObject:[PFUser currentUser] forKey:@"createdBy"];
-//    newProject[@"projectName"] = projectName;
-//    newProject[@"clientName"] = clientName;
-//    newProject[@"projectNote"] = projectNote;
-//    
-//    [newProject saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-//        if (succeeded) {
-//            PFRelation *relation = [[PFUser currentUser] relationForKey:@"usersProjects"];
-//            [relation addObject:newProject];
-//            [newProject saveEventually];
-//        }
-//    }];
-
-
+    // TODO:
+    // query project and assign session time to total time.
+    // save new value.
+   
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"objectId = %@",customCell.projectID];
+    PFQuery *query = [PFQuery queryWithClassName:@"Projects" predicate:predicate];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        //self.myObj = objects[0];
+        PFObject *proj = objects[0];
+        NSInteger projTotal = [proj[@"projectTime"] integerValue];
+        NSInteger sessionTotal = self.totalSessionSeconds.integerValue;
+        NSInteger newTotal = projTotal + sessionTotal;
+        
+        NSNumber *convertedTotal = [NSNumber numberWithInteger:newTotal];
+        
+        [proj setObject:convertedTotal forKey:@"projectTime"];
+        [proj saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+            if (error) {
+                //error occured
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Save Error" message:@"Save error encountered" delegate:self cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                [alert show];
+            }
+        }];
+        
+    }];
+    
 }
 
-//-(void)increaseTimeForCell:(CustomCellTableViewCell *)cell {
-//    NSLog(@"time is increasing");
-//    cell.projectTime.text = [NSString stringWithFormat:@"%ld:0%ld", (long)self.minute, (long)self.second];
-//
-//    if (self.second > 0 ) {
-//        self.second++;
-//    }
-//
-//    if (self.minute > 0) {
-//        if (self.second == 59) {
-//            self.second = 0;
-//            self.minute++;
-//        }
-//    }
-//
-//    if (self.timeHasStarted) {
-//        [self performSelector:@selector(increaseTimeForCell:) withObject:nil afterDelay:1.0];
-//    }
-//}
+- (NSString *)timeFormatted:(int)totalSeconds
+{
+    
+    int seconds = totalSeconds % 60;
+    int minutes = (totalSeconds / 60) % 60;
+    int hours = totalSeconds / 3600;
+    
+    self.second = seconds;
+    self.minute = minutes;
+    self.hour = hours;
 
+    
+    return [NSString stringWithFormat:@"%02d:%02d:%02d",hours, minutes, seconds];
+}
 
 @end
